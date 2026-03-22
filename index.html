@@ -5,64 +5,373 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy & Terms of Service - ClinicalAssist</title>
     <style>
-        body { font-family: -apple-system, sans-serif; line-height: 1.7; color: #1a202c; max-width: 850px; margin: 0 auto; padding: 40px; background-color: #f7fafc; }
-        .container { background: white; padding: 50px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; }
-        h1 { color: #2563EB; border-bottom: 3px solid #2563EB; padding-bottom: 15px; font-size: 28px; }
-        h2 { color: #1e40af; margin-top: 35px; font-size: 20px; text-transform: uppercase; letter-spacing: 1px; }
-        .disclaimer-box { background: #fff5f5; border: 2px solid #feb2b2; padding: 25px; border-radius: 15px; margin: 30px 0; color: #c53030; }
-        .disclaimer-box h3 { margin-top: 0; color: #9b2c2c; font-size: 16px; }
-        .privacy-highlight { background: #f0fff4; border: 1px solid #9ae6b4; padding: 20px; border-radius: 10px; color: #276749; font-weight: bold; }
-        .footer { margin-top: 60px; padding-top: 30px; border-top: 1px solid #e2e8f0; font-size: 13px; color: #718096; text-align: center; }
-        strong { color: #2d3748; }
-        ul { padding-left: 20px; }
-        li { margin-bottom: 10px; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; 
+            line-height: 1.8; 
+            color: #1a202c; 
+            background-color: #f7fafc;
+            padding: 20px;
+        }
+        .container { 
+            background: white; 
+            padding: 50px; 
+            border-radius: 16px; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08); 
+            border: 1px solid #e2e8f0;
+            max-width: 860px;
+            margin: 0 auto;
+        }
+        .brand { 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid #2563EB;
+        }
+        .brand-name { font-size: 28px; font-weight: 900; color: #1a202c; letter-spacing: -0.5px; }
+        .brand-name span { color: #2563EB; }
+        .meta { 
+            background: #f8fafc; 
+            border: 1px solid #e2e8f0; 
+            padding: 16px 20px; 
+            border-radius: 10px; 
+            margin-bottom: 30px;
+            font-size: 13px;
+            color: #64748b;
+            line-height: 1.6;
+        }
+        .meta strong { color: #1e293b; }
+        h1 { 
+            font-size: 22px; 
+            font-weight: 900; 
+            color: #0f172a; 
+            margin-bottom: 8px;
+        }
+        h2 { 
+            color: #1e40af; 
+            margin-top: 40px; 
+            margin-bottom: 14px;
+            font-size: 13px; 
+            text-transform: uppercase; 
+            letter-spacing: 2px;
+            font-weight: 900;
+        }
+        p { 
+            color: #374151; 
+            font-size: 14px; 
+            margin-bottom: 14px; 
+            line-height: 1.8;
+        }
+        ul { 
+            padding-left: 0; 
+            list-style: none;
+            margin-bottom: 14px;
+        }
+        li { 
+            margin-bottom: 10px; 
+            font-size: 14px; 
+            color: #374151;
+            padding-left: 20px;
+            position: relative;
+            line-height: 1.7;
+        }
+        li::before {
+            content: "•";
+            color: #2563EB;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        strong { color: #0f172a; }
+        .box-red { 
+            background: #fff5f5; 
+            border: 2px solid #fecaca; 
+            padding: 24px 28px; 
+            border-radius: 14px; 
+            margin: 28px 0;
+        }
+        .box-red h3 { 
+            color: #991b1b; 
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+            font-weight: 900;
+        }
+        .box-red p, .box-red li { color: #7f1d1d; }
+        .box-red li::before { color: #ef4444; }
+        .box-green { 
+            background: #f0fdf4; 
+            border: 1px solid #bbf7d0; 
+            padding: 20px 24px; 
+            border-radius: 12px; 
+            margin: 20px 0;
+        }
+        .box-green p { color: #14532d; margin: 0; font-weight: 600; font-size: 13px; }
+        .box-blue {
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            padding: 20px 24px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        .box-blue p { color: #1e3a8a; margin: 0; font-size: 13px; }
+        .box-amber {
+            background: #fffbeb;
+            border: 1px solid #fde68a;
+            padding: 20px 24px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        .box-amber h3 {
+            color: #92400e;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 10px;
+            font-weight: 900;
+        }
+        .box-amber p, .box-amber li { color: #78350f; font-size: 13px; }
+        .box-amber li::before { color: #f59e0b; }
+        .divider { 
+            height: 1px; 
+            background: #e2e8f0; 
+            margin: 40px 0; 
+        }
+        .footer { 
+            margin-top: 50px; 
+            padding-top: 28px; 
+            border-top: 1px solid #e2e8f0; 
+            font-size: 12px; 
+            color: #94a3b8; 
+            text-align: center;
+            line-height: 2;
+        }
+        .footer strong { color: #64748b; }
+        .badge {
+            display: inline-block;
+            background: #dbeafe;
+            color: #1e40af;
+            font-size: 10px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+        .badge.green { background: #dcfce7; color: #166534; }
+        .badge.amber { background: #fef3c7; color: #92400e; }
+        @media (max-width: 600px) {
+            .container { padding: 28px 20px; }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Privacy Policy and Terms of Service</h1>
-        <p><strong>Last Updated:</strong> January 6, 2026<br>
-        <strong>Effective Date:</strong> January 6, 2026<br>
-        <strong>Status:</strong> Local-Only Architecture (No Cloud Dependencies)</p>
+<div class="container">
 
-        <div class="disclaimer-box">
-            <h3>I. STATUTORY MEDICAL DISCLAIMER (MANDATORY)</h3>
-            <p><strong>ClinicalAssist is strictly an Academic Reference Library and Educational Compendium.</strong></p>
-            <ul>
-                <li><strong>NOT A MEDICAL DEVICE:</strong> This application is not a regulated medical device and is not intended for the diagnosis, treatment, or prevention of any disease.</li>
-                <li><strong>NO MEDICAL ADVICE:</strong> Data does not constitute medical advice or a professional-patient relationship.</li>
-                <li><strong>INDEPENDENT VERIFICATION:</strong> Users are strictly obligated to cross-reference all clinical data with official manufacturer product inserts or institutional formularies.</li>
-                <li><strong>EMERGENCY WARNING:</strong> This app is NOT for emergency use.</li>
-            </ul>
-        </div>
-
-        <div class="privacy-highlight">
-            II. ZERO-DATA COLLECTION POLICY (PRIVATE BY DEFAULT)
-        </div>
-        <p>In accordance with <strong>Google Play's 2026 Privacy Mandates</strong>, ClinicalAssist operates on a "Zero-Cloud" architecture. <strong>We do not collect, store, or transmit any personal data.</strong></p>
-        
-        <ul>
-            <li><strong>NO AUTHENTICATION REQUIRED:</strong> We have removed all Firebase and third-party authentication. You do not need an email or account to use the app.</li>
-            <li><strong>LOCAL IDENTITY:</strong> Your "Name" or "Identity" is stored exclusively on your physical hardware using 128-bit encrypted local storage. It is never transmitted to our servers.</li>
-            <li><strong>OFFLINE PROCESSING:</strong> 100% of clinical search logic and data processing occurs locally on your device. We have no backend servers and no "eyes" on your activity.</li>
-            <li><strong>NO ANALYTICS:</strong> We do not use trackers, cookies, or telemetry (No Google Analytics, No Mixpanel).</li>
-        </ul>
-
-        <h2>III. DATA CONTROL & ACCOUNT RESET</h2>
-        <p>Because there is no central database, you have absolute control over your data:</p>
-        <ul>
-            <li><strong>INSTANT WIPE:</strong> You can permanently erase your identity and local settings by selecting "Clear Identity Data" in the App Settings.</li>
-            <li><strong>UNINSTALL DELETION:</strong> Uninstalling the app automatically purges all locally stored data from your device's secure storage.</li>
-        </ul>
-
-        <h2>IV. INTELLECTUAL PROPERTY & SOURCES</h2>
-        <p>Content is synthesized from recognized authorities including FDA Drug Labels, WHO, and peer-reviewed clinical textbooks. The curation and structure of this database are the intellectual property of ClinicalAssist. Unauthorized commercial scraping or redistribution is strictly prohibited.</p>
-
-        <div class="footer">
-            ClinicalAssist Student Enterprise<br>
-            Official Privacy Audit: January 2026<br>
-            <strong>Local Build - Privacy Secured</strong>
+    <!-- BRAND -->
+    <div class="brand">
+        <div>
+            <div class="brand-name">Clinical<span>Assist</span></div>
+            <div style="font-size:11px; color:#64748b; font-weight:700; text-transform:uppercase; letter-spacing:2px; margin-top:4px;">
+                Professional Medical Reference
+            </div>
         </div>
     </div>
+
+    <h1>Privacy Policy & Terms of Service</h1>
+
+    <!-- META -->
+    <div class="meta">
+        <strong>Last Updated:</strong> March 2026 &nbsp;•&nbsp;
+        <strong>Effective Date:</strong> March 2026 &nbsp;•&nbsp;
+        <strong>Version:</strong> 2.0 (AI + Identity Architecture)<br>
+        <strong>App ID:</strong> com.clinicalassist.v1 &nbsp;•&nbsp;
+        <strong>Platform:</strong> Android (Google Play Store)
+    </div>
+
+    <!-- SECTION I: MANDATORY DISCLAIMER -->
+    <div class="box-red">
+        <h3>I. Statutory Medical Disclaimer — Mandatory</h3>
+        <p style="margin-bottom:12px;">
+            <strong>ClinicalAssist is strictly an Academic Reference Library and Clinical Decision Support Tool.</strong>
+            It is not a regulated medical device and is not intended for the diagnosis, treatment, cure, or prevention of any disease or medical condition.
+        </p>
+        <ul>
+            <li><strong>NOT A MEDICAL DEVICE:</strong> This application has not been evaluated or approved by the FDA, CDSCO, or any other regulatory authority as a medical device.</li>
+            <li><strong>NO PROFESSIONAL RELATIONSHIP:</strong> Use of this application does not constitute a doctor-patient, pharmacist-patient, or any other professional-client relationship.</li>
+            <li><strong>MANDATORY VERIFICATION:</strong> All clinical data including drug dosages, interactions, and contraindications must be cross-referenced with official manufacturer product inserts, institutional formularies, and current clinical guidelines before any clinical application.</li>
+            <li><strong>NOT FOR EMERGENCIES:</strong> This application is strictly not for use in life-threatening emergencies. Always contact emergency services immediately in such situations.</li>
+            <li><strong>AI-GENERATED CONTENT:</strong> Responses generated by The Assistant (our AI clinical support feature) are grounded in verified registry data but must be independently verified by a qualified medical professional before clinical use.</li>
+        </ul>
+    </div>
+
+    <!-- SECTION II: AUTHENTICATION & IDENTITY -->
+    <h2>II. Authentication & User Identity</h2>
+
+    <div class="box-blue">
+        <p><strong>ClinicalAssist uses Google Sign-In (Firebase Authentication) to verify user identity.</strong>
+        This is required to personalize your clinical workspace and protect your professional profile.</p>
+    </div>
+
+    <p>When you sign in with Google, the following occurs:</p>
+    <ul>
+        <li><strong>GOOGLE ACCOUNT:</strong> Your Google account credentials are managed exclusively by Google LLC. ClinicalAssist never receives, stores, or has access to your Google password.</li>
+        <li><strong>FIREBASE AUTHENTICATION:</strong> We use Firebase Authentication (by Google) solely to verify your identity. Firebase receives your Google account identifier (UID) and email address for this purpose.</li>
+        <li><strong>LOCAL PROFILE STORAGE:</strong> After sign-in, your chosen display name and professional designation (Doctor or Student) are stored exclusively in encrypted local storage on your physical device using SQLite. This data is never transmitted to ClinicalAssist servers.</li>
+        <li><strong>NO PHI INPUT:</strong> You are strictly prohibited from entering any patient-identifiable information including patient names, medical record numbers, diagnoses, or biometric data into any field in this application.</li>
+        <li><strong>TERMS ACCEPTANCE:</strong> Your agreement to these Terms of Service is recorded locally on your device. A new agreement is required if these terms are materially updated.</li>
+    </ul>
+
+    <p>Firebase Authentication is governed by Google's Privacy Policy available at
+        <strong>policies.google.com/privacy</strong>. By using ClinicalAssist you also agree to Google's Terms of Service.
+    </p>
+
+    <!-- SECTION III: AI ASSISTANT -->
+    <h2>III. AI-Assisted Clinical Support — The Assistant</h2>
+
+    <div class="box-amber">
+        <h3>Important Notice About AI Features</h3>
+        <p>The Assistant is an AI-powered clinical decision support feature available to ClinicalAssist Pro subscribers.
+        All AI responses are grounded in verified data from official medical registries.
+        AI responses are for reference only and must be verified before clinical application.</p>
+    </div>
+
+    <p>The Assistant feature operates as follows:</p>
+    <ul>
+        <li><strong>DATA SOURCES:</strong> The Assistant grounds its responses exclusively in verified data from the U.S. Food and Drug Administration (FDA) Drug Label Database, FDA MedWatch Post-Marketing Surveillance System, and the NIH National Library of Medicine Clinical Tables API. No speculative or unverified information is intentionally generated.</li>
+        <li><strong>AI ENGINE:</strong> Query synthesis is performed using a large language model. Queries are transmitted securely over HTTPS to the AI provider's API endpoint for processing. Queries are not stored or used to train AI models under standard API usage terms.</li>
+        <li><strong>QUERY CONTENT:</strong> Clinical queries you submit to The Assistant are transmitted to the AI processing endpoint. You must never include patient-identifiable information in any query.</li>
+        <li><strong>NO QUERY LOGGING BY CLINICALASSIST:</strong> ClinicalAssist does not log, store, or review the content of your queries. Query processing is handled entirely by the AI provider under their data processing terms.</li>
+        <li><strong>UNCERTAINTY DISCLOSURE:</strong> The Assistant is programmed to explicitly flag when data is insufficient or uncertain and to direct users to verify with current clinical guidelines.</li>
+        <li><strong>PRO SUBSCRIPTION:</strong> The Assistant is a premium feature available via a paid subscription processed through Razorpay. Payment data is handled exclusively by Razorpay and is never accessible to ClinicalAssist.</li>
+    </ul>
+
+    <!-- SECTION IV: DATA COLLECTION -->
+    <h2>IV. Data We Collect and Why</h2>
+
+    <div class="box-green">
+        <p>ClinicalAssist is designed with privacy as a core principle.
+        We collect the minimum data necessary to provide the service.
+        No data is sold to third parties. Ever.</p>
+    </div>
+
+    <p>The following data is processed when you use ClinicalAssist:</p>
+
+    <ul>
+        <li><strong>Google Account UID and Email:</strong> Collected via Firebase Authentication at sign-in. Used solely to verify identity and link your local profile. Stored by Firebase under Google's privacy policy.</li>
+        <li><strong>Display Name and Designation:</strong> Entered by you during onboarding. Stored locally on your device in SQLite encrypted storage. Never transmitted to ClinicalAssist servers.</li>
+        <li><strong>Premium Subscription Status:</strong> Your Pro subscription status is stored locally on your device. Payment verification is handled by Razorpay.</li>
+        <li><strong>Clinical Queries (Pro users only):</strong> Queries submitted to The Assistant are transmitted to the AI processing endpoint over HTTPS. Not stored by ClinicalAssist.</li>
+        <li><strong>Firebase Cloud Messaging Token:</strong> If you grant notification permission, a device token is registered with Firebase to enable push notifications. This token does not identify you personally.</li>
+        <li><strong>Crash and Performance Data:</strong> Anonymous crash reports may be collected by Firebase Crashlytics to help us fix bugs. No personal or clinical data is included.</li>
+    </ul>
+
+    <p>We do <strong>not</strong> collect:</p>
+    <ul>
+        <li>Patient data, medical records, or Protected Health Information (PHI) of any kind</li>
+        <li>Device location data</li>
+        <li>Contacts, camera, or microphone data</li>
+        <li>Browsing history or cross-app tracking data</li>
+        <li>Biometric data of any kind</li>
+    </ul>
+
+    <!-- SECTION V: DATA STORAGE -->
+    <h2>V. Where Your Data Is Stored</h2>
+    <ul>
+        <li><strong>LOCAL DEVICE STORAGE (SQLite):</strong> Your name, designation, and app preferences are stored in encrypted SQLite on your physical Android device. This data never leaves your device under normal operation.</li>
+        <li><strong>FIREBASE (Google Cloud):</strong> Your Google UID and email are stored in Firebase Authentication infrastructure operated by Google in accordance with their data residency policies.</li>
+        <li><strong>RAZORPAY:</strong> Payment and subscription data is stored by Razorpay in accordance with PCI-DSS standards and RBI guidelines for Indian payment processors.</li>
+    </ul>
+
+    <!-- SECTION VI: ACCOUNT DELETION -->
+    <h2>VI. Account Deletion & Data Removal</h2>
+
+    <div class="box-blue">
+        <p><strong>You have the right to delete your account and all associated data at any time.</strong>
+        ClinicalAssist provides multiple ways to exercise this right.</p>
+    </div>
+
+    <p><strong>To delete your account and data:</strong></p>
+    <ul>
+        <li><strong>IN-APP DELETION:</strong> Open the app → tap the menu icon (top right) → Settings → scroll to the bottom → tap "Secure Logout". This wipes your local SQLite profile, clears all locally stored preferences, and signs you out of Firebase Authentication on this device.</li>
+        <li><strong>FULL DATA DELETION REQUEST:</strong> To request permanent deletion of your Firebase Authentication record (Google UID and email), contact us at <strong>clinicalassist.center@gmail.com</strong> with subject line "Account Deletion Request". We will process this within 30 days and confirm via email.</li>
+        <li><strong>UNINSTALL:</strong> Uninstalling the app from your Android device automatically purges all locally stored SQLite data, preferences, and cached content from your device.</li>
+        <li><strong>RAZORPAY SUBSCRIPTION:</strong> To cancel your Pro subscription, contact Razorpay support or email us at clinicalassist.center@gmail.com. Cancellation stops future billing; access continues until the end of the current cycle.</li>
+    </ul>
+
+    <p>In accordance with <strong>Google Play's Data Deletion Policy</strong>, users who created an account can request deletion of their account and associated data both within the app and via the contact email above.</p>
+
+    <!-- SECTION VII: THIRD PARTY SERVICES -->
+    <h2>VII. Third-Party Services Used</h2>
+    <ul>
+        <li><strong>Firebase Authentication</strong> (Google LLC) — Identity verification. Privacy policy: policies.google.com/privacy</li>
+        <li><strong>Firebase Cloud Messaging</strong> (Google LLC) — Push notifications. Governed by Google's privacy policy.</li>
+        <li><strong>Firebase Crashlytics</strong> (Google LLC) — Anonymous crash reporting.</li>
+        <li><strong>U.S. FDA OpenFDA API</strong> — Drug label and safety data. Public API, no personal data transmitted.</li>
+        <li><strong>NIH NLM Clinical Tables API</strong> — Disease and condition reference data. Public API, no personal data transmitted.</li>
+        <li><strong>Razorpay</strong> — Payment processing for Pro subscriptions. PCI-DSS compliant. Privacy policy: razorpay.com/privacy</li>
+        <li><strong>Google AdMob</strong> — Advertisements shown to free-tier users. AdMob may collect advertising identifiers. You can opt out via Android device settings under Google → Ads → Opt out of Ads Personalization.</li>
+    </ul>
+
+    <!-- SECTION VIII: PERMISSIONS -->
+    <h2>VIII. Android Permissions Explained</h2>
+    <ul>
+        <li><strong>INTERNET:</strong> Required for Google Sign-In, AI query processing, FDA/NIH registry lookups, and push notifications.</li>
+        <li><strong>POST_NOTIFICATIONS:</strong> Required to send clinical wisdom notifications. You can disable this in Android Settings at any time.</li>
+        <li><strong>SCHEDULE_EXACT_ALARM:</strong> Required to schedule daily clinical reference notifications at precise times.</li>
+        <li><strong>READ_MEDIA_IMAGES / READ_EXTERNAL_STORAGE:</strong> Not actively used in current version. Declared for future feature compatibility.</li>
+    </ul>
+
+    <!-- SECTION IX: TERMS OF SERVICE -->
+    <div class="divider"></div>
+    <h2>IX. Terms of Service</h2>
+
+    <p><strong>By downloading, installing, or using ClinicalAssist, you agree to the following terms:</strong></p>
+
+    <ul>
+        <li><strong>ELIGIBILITY:</strong> This application is intended for use by licensed medical professionals, medical students, and healthcare trainees who are 18 years of age or older. Use by minors is not permitted.</li>
+        <li><strong>ACCEPTABLE USE:</strong> You agree to use this application solely for legitimate clinical reference and educational purposes. Automated scraping, reverse engineering, or commercial redistribution of clinical data is strictly prohibited.</li>
+        <li><strong>PROFESSIONAL RESPONSIBILITY:</strong> You acknowledge that you assume full professional and legal responsibility for any clinical decision made in reliance on information obtained from this application. ClinicalAssist is a reference tool, not a substitute for clinical judgment.</li>
+        <li><strong>NO PHI:</strong> You agree never to enter patient-identifiable health information into any field in this application. Violation of this term is grounds for immediate account termination.</li>
+        <li><strong>AI FEATURE TERMS:</strong> Use of The Assistant (Pro feature) is subject to additional acknowledgement that AI-generated clinical content must be independently verified. The Assistant is not a diagnostic tool.</li>
+        <li><strong>SUBSCRIPTION TERMS:</strong> Pro subscriptions are billed on a recurring basis as described at purchase. Refund requests must be submitted within 48 hours of purchase to clinicalassist.center@gmail.com and are subject to review.</li>
+        <li><strong>UPDATES TO TERMS:</strong> We may update these Terms periodically. Continued use after notification of material changes constitutes acceptance. Major changes will require explicit re-acceptance within the app.</li>
+        <li><strong>GOVERNING LAW:</strong> These Terms are governed by the laws of India. Any disputes shall be subject to the exclusive jurisdiction of courts in India.</li>
+    </ul>
+
+    <!-- SECTION X: INDEMNIFICATION -->
+    <h2>X. Limitation of Liability & Indemnification</h2>
+
+    <p>To the maximum extent permitted by applicable law, ClinicalAssist, its developers, and affiliates shall not be liable for any direct, indirect, incidental, special, or consequential damages arising from your use of the application, including but not limited to clinical errors, misinterpretation of data, or adverse patient outcomes.</p>
+
+    <p>You agree to indemnify and hold harmless ClinicalAssist and its developers from any claims, damages, losses, or expenses arising out of your use of the application or your violation of these Terms.</p>
+
+    <!-- SECTION XI: CHILDREN'S PRIVACY -->
+    <h2>XI. Children's Privacy</h2>
+    <p>ClinicalAssist is not directed at children under 18 years of age. We do not knowingly collect personal information from minors. If you believe a minor has provided personal information through this application, contact us at clinicalassist.center@gmail.com and we will promptly delete it.</p>
+
+    <!-- SECTION XII: CONTACT -->
+    <h2>XII. Contact & Data Protection Officer</h2>
+    <ul>
+        <li><strong>Support & General Enquiries:</strong> clinicalassist.center@gmail.com</li>
+        <li><strong>Account Deletion Requests:</strong> clinicalassist.center@gmail.com (Subject: "Account Deletion Request")</li>
+        <li><strong>Privacy Concerns:</strong> clinicalassist.center@gmail.com (Subject: "Privacy Concern")</li>
+        <li><strong>Response Time:</strong> Within 30 business days for data requests, within 24 hours for general support.</li>
+    </ul>
+
+    <div class="footer">
+        <strong>ClinicalAssist</strong> — Professional Medical Reference for Android<br>
+        App ID: com.clinicalassist.v1 &nbsp;•&nbsp; Version 2.0<br>
+        Privacy Policy Version: March 2026<br>
+        Last Clinical & Legal Audit: March 2026<br><br>
+        <strong>This document is hosted publicly in compliance with Google Play Store data safety requirements.</strong>
+    </div>
+
+</div>
 </body>
 </html>
